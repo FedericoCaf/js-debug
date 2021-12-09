@@ -68,15 +68,12 @@ addNumbers();
   //errore logico, va specificato con parseInt che il valore userNumber è un numero, altrimenti non verrà sommato ma concatenato come stringa.
 
 
-
-
 // ESERCIZIO 4
 function checkAccess() {
     const addresses = ['mymail@mail.com', 'yourmail@mail.com', 'hermail@mail.com', 'hismail@mail.com'];
     const userEmail = prompt('Inserisci il tuo indirizzo email');
 
     let grantAccess = false;
-
     if (addresses.includes(userEmail)) {
         grantAccess = true;
     }
