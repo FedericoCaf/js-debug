@@ -25,7 +25,7 @@ const cars = [
     {
         manufacturer: 'Volkswagen',
         model: 'Golf',
-        type: 'Benzina'
+        type: 'benzina'
     },
     {
         manufacturer: 'Fiat',
@@ -56,31 +56,44 @@ const cars = [
         manufacturer: 'Seat',
         model: 'Ibiza',
         type: 'metano'
-    }
+    },
     {
         manufacturer: 'Audi',
         model: 'R8',
         type: 'Benzina'
     },
-];
+  ];
+  
+  const gasolineCars = cars.filter( (auto) => auto.type.toUpperCase() === 'benzina'.toUpperCase());
+  
+  const dieselCars = cars.filter( (auto) => auto.type.toUpperCase() === 'diesel'.toUpperCase());
+  
+  const otherCars = cars.filter( (auto) => {
+    return auto.type.toUpperCase() !== 'benzina'.toUpperCase() && auto.type.toUpperCase() !== 'diesel'.toUpperCase();
+  });
+  
+  console.log('Auto a benzina');
+  console.log('*******************************');
+  console.log(gasolineCars);
+  
+  console.log('Auto a diesel');
+  console.log('*******************************');
+  console.log(dieselCars);
+  
+  console.log('Tutte le altre auto');
+  console.log(otherCars);
 
-const gasolineCars = cars.filter( (auto) >= auto.type === 'benzina');
+/****************************************************************
+​
+    1- Viene dichiarato un array di oggetti contenenti dati di automobili.
+    tramite il metodo filter viene restituito l'array filtrato, prima per le auto a benzina, poi per le diesel e poi per tutte quelle diverse da benzina e diesel.
+    Inifine si visualizzano nel log i 3 array creati.
 
-const dieselCars = cars.filter( (auto) => {
-    auto.type === 'diesel';
-});
 
-const otherCars = cars.filter( (auto) => {
-    return auto.type !== 'benzina' || auto.type !== 'diesel';
-});
-
-console.log('Auto a benzina');
-console.log('*******************************');
-console.log(gasolineCars);
-
-console.log('Auto a diesel');
-console.log('*******************************');
-console.log(dieselCars);
-
-console.log('Tutte le altre auto');
-console.log(otherCars);
+    2- errore di sintassi, manca una virgola a riga 59 dopo la graffa. 
+    errore di sintassi, riga 67, arrow funct si scrive => non >= 
+    3- Errore logico, nella doppia condizione va messo && invece di || perchè deve essere vera se entrambe le condizioni sono vere contemporaneamente(non se una delle due)
+    Errore logico, il case sensitive non è considerato. aggiungendo il metodo toUpperCase (o toLowerCase) per tutte le stringhe da confrontare e non si avranno problemi in questo senso.
+    Errore logico, riga 70 manca il return, oppure togliendo le graffe e scrivendo tutto su una riga il return è implicito.
+​
+****************************************************************/
